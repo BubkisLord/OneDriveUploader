@@ -1,0 +1,31 @@
+﻿<Window x:Class="OneDriveUploader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OneDriveUploader"
+        mc:Ignorable="d"
+        Title="OneDrive Uploader" Height="Auto" Width="600" SizeToContent="Height" d:DesignHeight="395.292">
+    <Grid>
+        <StackPanel Background="Azure">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <ComboBox x:Name="howToSignIn" SelectedIndex="0" SelectionChanged="UseWam_Changed" VerticalAlignment="Center">
+                    <ComboBoxItem Content="Use account used to signed-in in Windows (WAM)"/>
+                    <ComboBoxItem Content="Use one of the Accounts known by Windows (WAM)"/>
+                    <ComboBoxItem Content="Use any account (Azure AD)"/>
+                </ComboBox>
+                <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+                <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
+            </StackPanel>
+            <Label Content="Account Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
+            <Label Content="Token Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
+            <Label Content="Path to the file you want to upload:" Margin="0,0,0,-5" FontFamily="Segoe Ui"/>
+            <TextBox x:Name="FilePathTextBox" TextWrapping="Wrap" MinHeight="20" Margin="5" FontFamily="Segoe Ui"/>
+        </StackPanel>
+        <RadioButton Content="Upload File" Checked="RadioButton_Checked_1" Margin="5,0,468,365"/>
+        <RadioButton Content="Upload Folder" Margin="5,20,468,344" Checked="RadioButton_Checked"/>
+        <CheckBox x:Name="UseBrokerPreview" Content="Use Preview Broker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="469,42,0,0" Checked="UseBrokerPreview_Changed" Unchecked="UseBrokerPreview_Changed"/>
+    </Grid>
+</Window>
